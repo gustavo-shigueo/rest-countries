@@ -19,3 +19,6 @@ dist
 design
 README-template.md
 style-guide.md
+
+# Local Netlify folder
+.netlify
