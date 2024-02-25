@@ -1,0 +1,12 @@
+@layer page {
+  .back {
+    padding-inline: 1.5em;
+    padding-block: 0.5em;
+    inline-size: max-content;
+
+    background-color: var(--color-elements);
+    color: var(--color-text);
+    box-shadow: var(--shadow);
+    border-radius: 0.25em;
+  }
+}

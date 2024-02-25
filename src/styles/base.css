@@ -1,0 +1,125 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg-light: hsl(0 0% 98%);
+  --color-bg-dark: hsl(207 26% 17%);
+
+  --color-text-light: hsl(200 15% 8%);
+  --color-text-dark: hsl(0 0% 100%);
+
+  --color-elements-light: hsl(0 0% 100%);
+  --color-elements-dark: hsl(209 23% 22%);
+
+  --color-input-light: hsl(0 0% 52%);
+  --color-input-dark: hsl(0 0% 100%);
+
+  --shadow: 5px 5px 15px lch(0 0 0 / 0.15);
+
+  font-size: clamp(12px, 1vw, 16px);
+  font-family: "Nunito Sans", system-ui;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--color-bg-dark);
+    --color-text: var(--color-text-dark);
+    --color-elements: var(--color-elements-dark);
+    --color-input: var(--color-elements-dark);
+  }
+
+  :root:has(.light) {
+    --color-bg: var(--color-bg-light);
+    --color-text: var(--color-text-light);
+    --color-elements: var(--color-elements-light);
+    --color-input: var(--color-elements-light);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: var(--color-bg-light);
+    --color-text: var(--color-text-light);
+    --color-elements: var(--color-elements-light);
+    --color-input: var(--color-elements-light);
+  }
+
+  root:has(.dark) {
+    --color-bg: var(--color-bg-dark);
+    --color-text: var(--color-text-dark);
+    --color-elements: var(--color-elements-dark);
+    --color-input: var(--color-elements-dark);
+  }
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+#root {
+  --gutter: max(3rem, 5vw);
+
+  display: grid;
+  grid-template-columns:
+    [full-start] var(--gutter) [content-start] 1fr [content-end] var(--gutter)
+    [full-end];
+
+  row-gap: 3rem;
+
+  & > * {
+    grid-column: content;
+  }
+}
+
+a:any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+:is(h1, h2, h3, h4, h5, h6, input, textarea, select, button) {
+  font: inherit;
+}
+
+:is(img, picture, video, svg) {
+  display: block;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+
+  padding-inline: 1ch;
+  border: none;
+
+  color: var(--color-text);
+
+  cursor: pointer;
+  overflow: clip;
+  border-radius: 0.5em;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--color-text);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 200ms ease-in-out;
+  }
+
+  &:is(:hover, :focus-visible)::after {
+    opacity: 0.2;
+  }
+}

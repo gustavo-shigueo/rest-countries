@@ -1,0 +1,54 @@
+@layer component {
+  .card {
+    max-inline-size: 20rem;
+    background-color: var(--color-elements);
+
+    border-radius: 0.5rem;
+    overflow: clip;
+
+    box-shadow: var(--shadow);
+    cursor: pointer;
+
+    transition: 300ms ease-in-out;
+
+    &:is(:hover, :focus-within) {
+      scale: 1.1;
+      translate: 0 -5%;
+      box-shadow: 10px 10px 15px lch(0 0 0 / 0.2);
+    }
+  }
+
+  .card > a:focus {
+    outline: none;
+  }
+
+  .flag > img {
+    display: block;
+    inline-size: 100%;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1.75;
+  }
+
+  .info {
+    padding: 2rem;
+    padding-block-end: 3rem;
+
+    & > h2 {
+      margin-block-end: 1em;
+
+      line-height: 1;
+      font-weight: 800;
+      font-size: 1.5rem;
+    }
+
+    & > p {
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    & > p > strong {
+      font-weight: 600;
+    }
+  }
+}

@@ -1,0 +1,3 @@
+@layer base page component;
+
+@import url("./styles/base.css") layer(base);

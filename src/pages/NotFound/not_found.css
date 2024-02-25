@@ -1,0 +1,15 @@
+@layer page {
+  .not_found {
+    text-align: center;
+    font-size: 1.25rem;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+
+    p a {
+      font-weight: 600;
+    }
+  }
+}

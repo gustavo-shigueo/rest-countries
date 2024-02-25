@@ -1,0 +1,29 @@
+@layer page {
+  main {
+    display: grid;
+    gap: calc(0.75 * var(--gutter));
+  }
+
+  .countries {
+    display: grid;
+    padding-block-end: var(--gutter);
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    justify-items: center;
+    gap: var(--gutter);
+  }
+
+  .search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--gutter);
+
+    grid-column: 1 / -1;
+
+    & > :first-child {
+      flex-grow: 1;
+      max-inline-size: min(100%, 40rem);
+    }
+  }
+}

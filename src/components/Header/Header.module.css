@@ -1,0 +1,27 @@
+@layer component {
+  .header {
+    display: grid;
+    grid-template-columns: subgrid;
+    padding: 1rem;
+
+    grid-column: full;
+
+    background-color: var(--color-elements);
+    box-shadow: var(--shadow);
+
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      grid-column: content;
+    }
+  }
+
+  .link {
+    font-size: 1.75rem;
+    font-weight: 800;
+  }
+
+  .button {
+    background-color: transparent;
+  }
+}
